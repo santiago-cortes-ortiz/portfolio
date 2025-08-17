@@ -46,7 +46,7 @@ function Hero() {
             <span className="size-1.5 rounded-full bg-emerald-500" /> Disponible para oportunidades
           </div>
           <h1 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
-            Software Engineer especializado en Java y Spring Boot
+            Software Engineer especializado en desarrollo Backend
           </h1>
           <p className="text-neutral-300 max-w-2xl">
             Diseño y construyo APIs robustas, escalables y mantenibles. Me enfoco en arquitectura limpia,
@@ -81,8 +81,7 @@ function SobreMi() {
         <SectionTitle>Sobre mí</SectionTitle>
         <div className="prose prose-invert max-w-none">
           <p>
-            Más de X años construyendo productos backend con Java, Spring Boot, JPA/Hibernate y bases de datos SQL/NoSQL.
-            Experiencia con Docker, CI/CD, pruebas automatizadas y monitoreo.
+          Ingeniero de Sistemas con más de 4 años de experiencia en desarrollo backend en entornos de alta demanda. He contribuido en proyectos de marketplace y Seller Central en Mercado Libre, optimizando rendimiento y en la estabilidad de los servicios. Experiencia en integración de soluciones IA (chatbots) para automatizar procesos y mejorar la eficiencia operativa. Disfruto impulsando ideas innovadoras en colaboración con distintos perfiles y asumiendo la responsabilidad de proyectos importantes que marquen la diferencia.
           </p>
         </div>
       </div>
@@ -93,12 +92,25 @@ function SobreMi() {
 function Experiencia() {
   const items = [
     {
-      rol: 'Software Engineer', empresa: 'Compañía Ejemplo', periodo: '2022 — Actualidad',
-      resumen: 'Microservicios con Spring Boot, mensajería (Kafka/RabbitMQ), autenticación OAuth2/JWT, despliegue en Kubernetes.'
+      rol: 'Software Engineer',
+      empresa: 'MERCADO LIBRE',
+      periodo: 'Abril 2024 — Presente',
+      detalles: [
+        'Desarrollo de nuevas funcionalidades y mejoras dentro de la plataforma de marketplace y Seller Central.',
+        'Implementación de soluciones escalables y eficientes utilizando tecnologías como Java, Spring Boot y NoSQL.',
+        'Resolución de incidencias y bugs en producción, garantizando la estabilidad y fiabilidad del sistema.',
+        'Automatización y entrenamiento de modelos de IA (como chatbots) para agilizar el acceso a información y mejorar la eficiencia en la toma de decisiones, reduciendo tiempos de respuesta y aumentando la productividad del equipo de producto.',
+      ],
     },
     {
-      rol: 'Backend Developer', empresa: 'Startup X', periodo: '2020 — 2022',
-      resumen: 'Diseño de APIs REST, optimización de consultas, pruebas con JUnit y Testcontainers.'
+      rol: 'Desarrollador de software',
+      empresa: 'IAS SOFTWARE',
+      periodo: 'Noviembre 2021 — Abril 2024',
+      detalles: [
+        'Desarrollo de aplicaciones empresariales para los diferentes clientes de la compañía.',
+        'Desarrollo de requerimientos funcionales e historias de usuario.',
+        'Desarrollos en stacks tecnológicos como Spring Boot, Angular, PostgreSQL y AWS.',
+      ],
     },
   ]
   return (
@@ -110,13 +122,18 @@ function Experiencia() {
             {items.map((item, idx) => (
               <motion.div key={item.empresa+item.periodo} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="relative pl-10 md:pl-0">
-                <div className="absolute left-3 md:left-1/2 md:-translate-x-1/2 top-2 size-2 rounded-full bg-violet-500" />
                 <div className="card p-5">
                   <div className="flex items-center justify-between mb-1">
                     <p className="font-medium inline-flex items-center gap-2"><Building2 className="size-4"/> {item.rol} • {item.empresa}</p>
                     <span className="text-sm text-neutral-400 inline-flex items-center gap-1"><Calendar className="size-4"/> {item.periodo}</span>
                   </div>
-                  <p className="text-sm text-neutral-300">{item.resumen}</p>
+                  {item.detalles && (
+                    <ul className="mt-2 list-disc pl-5 text-sm text-neutral-300 space-y-1">
+                      {item.detalles.map((d) => (
+                        <li key={d}>{d}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -173,8 +190,8 @@ function Proyectos() {
 function Habilidades() {
   const skills = {
     Backend: ['Java 17', 'Spring Boot', 'Spring Security', 'JPA/Hibernate', 'REST', 'Kafka/RabbitMQ'],
-    Infraestructura: ['Docker', 'Kubernetes', 'CI/CD', 'Grafana/Prometheus'],
-    BasesDeDatos: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis'],
+    Infraestructura: ['Docker', 'Kubernetes', 'CI/CD', 'Kibana', 'Datadog'],
+    BD: ['PostgreSQL', 'MySQL', 'DynamoDB', 'Redis'],
     Testing: ['JUnit', 'Testcontainers', 'MockMVC'],
   }
   return (
