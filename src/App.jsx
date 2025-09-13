@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowRight, Building2, Calendar, Code2 } from 'lucide-react'
 
@@ -35,6 +36,19 @@ function SectionTitle({ children, id }) {
 }
 
 function Hero() {
+  const [emailCopied, setEmailCopied] = useState(false)
+  const email = "jeissonsantiagocortes@gmail.com"
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+      setEmailCopied(true)
+      setTimeout(() => setEmailCopied(false), 2000)
+    } catch (err) {
+      console.error('Error al copiar email:', err)
+    }
+  }
+
   return (
     <section id="inicio" className="pt-16">
       <div className="container-pro py-16 md:py-24 grid md:grid-cols-3 gap-10 items-center relative">
@@ -57,9 +71,20 @@ function Hero() {
             <a href="#proyectos" className="px-4 py-2 rounded-md border border-neutral-700 hover:border-neutral-500 transition-colors">Ver proyectos</a>
           </div>
           <div className="flex gap-4 pt-2 text-sm text-neutral-400">
-            <a className="hover:text-white inline-flex items-center gap-1" href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><Linkedin className="size-4"/> LinkedIn</a>
+            <a className="hover:text-white inline-flex items-center gap-1" href="https://linkedin.com/in/jeisson-cortes-0ba9611b9" target="_blank" rel="noreferrer"><Linkedin className="size-4"/> LinkedIn</a>
             <a className="hover:text-white inline-flex items-center gap-1" href="https://github.com/" target="_blank" rel="noreferrer"><Github className="size-4"/> GitHub</a>
-            <a className="hover:text-white inline-flex items-center gap-1" href="mailto:tuemail@ejemplo.com"><Mail className="size-4"/> Email</a>
+            <button 
+              onClick={copyEmail}
+              className="hover:text-white inline-flex items-center gap-1 relative"
+            >
+              <Mail className="size-4"/> 
+              {emailCopied ? 'Email copiado!' : 'Email'}
+              {emailCopied && (
+                <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                  ¡Email copiado al portapapeles!
+                </span>
+              )}
+            </button>
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="md:col-span-1">
@@ -81,7 +106,7 @@ function SobreMi() {
         <SectionTitle>Sobre mí</SectionTitle>
         <div className="prose prose-invert max-w-none">
           <p>
-          Ingeniero de Sistemas con más de 4 años de experiencia en desarrollo backend en entornos de alta demanda. He contribuido en proyectos de marketplace y Seller Central en Mercado Libre, optimizando rendimiento y en la estabilidad de los servicios. Experiencia en integración de soluciones IA (chatbots) para automatizar procesos y mejorar la eficiencia operativa. Disfruto impulsando ideas innovadoras en colaboración con distintos perfiles y asumiendo la responsabilidad de proyectos importantes que marquen la diferencia.
+          Ingeniero de Sistemas con más de 4 años de experiencia en desarrollo backend en entornos de alta demanda. He contribuido en proyectos de marketplace y Seller Central en Mercado Libre, he optimizando el rendimiento y en la estabilidad de los servicios. Experiencia en integración de soluciones IA (chatbots) para automatizar procesos y mejorar la eficiencia operativa. Disfruto impulsando ideas innovadoras en colaboración con distintos perfiles y asumiendo la responsabilidad de proyectos importantes que marquen la diferencia.
           </p>
         </div>
       </div>
@@ -107,6 +132,7 @@ function Experiencia() {
       empresa: 'IAS SOFTWARE',
       periodo: 'Noviembre 2021 — Abril 2024',
       detalles: [
+        <>Participación en proyectos de <span className="font-medium text-neutral-100">Bancolombia</span> como analista de requerimientos y desarrollador de software.</>,
         'Desarrollo de aplicaciones empresariales para los diferentes clientes de la compañía.',
         'Desarrollo de requerimientos funcionales e historias de usuario.',
         'Desarrollos en stacks tecnológicos como Spring Boot, Angular, PostgreSQL y AWS.',
@@ -223,8 +249,8 @@ function Contacto() {
         <div className="card p-6">
           <p className="text-neutral-300 mb-4">¿Tienes un proyecto o una vacante? Me encantará conversar.</p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <a href="mailto:tuemail@ejemplo.com" className="px-4 py-2 rounded-md bg-violet-600 hover:bg-violet-500 transition-colors text-center">Escríbeme</a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="px-4 py-2 rounded-md border border-neutral-700 hover:border-neutral-500 transition-colors text-center">LinkedIn</a>
+            <a href="mailto:jeissonsantiagocortes@gmail.com" className="px-4 py-2 rounded-md bg-violet-600 hover:bg-violet-500 transition-colors text-center">Escríbeme</a>
+            <a href="https://linkedin.com/in/jeisson-cortes-0ba9611b9" target="_blank" rel="noreferrer" className="px-4 py-2 rounded-md border border-neutral-700 hover:border-neutral-500 transition-colors text-center">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -244,7 +270,7 @@ export default function App() {
       <Contacto />
       <footer className="border-t border-neutral-800">
         <div className="container-pro py-8 text-sm text-neutral-500">
-          © {new Date().getFullYear()} — Hecho con React + Tailwind
+          © {new Date().getFullYear()} — Hecho con  AI , React + Tailwind
         </div>
       </footer>
     </div>
