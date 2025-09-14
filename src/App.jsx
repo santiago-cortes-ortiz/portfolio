@@ -72,7 +72,7 @@ function Hero() {
           </div>
           <div className="flex gap-4 pt-2 text-sm text-neutral-400">
             <a className="hover:text-white inline-flex items-center gap-1" href="https://linkedin.com/in/jeisson-cortes-0ba9611b9" target="_blank" rel="noreferrer"><Linkedin className="size-4"/> LinkedIn</a>
-            <a className="hover:text-white inline-flex items-center gap-1" href="https://github.com/" target="_blank" rel="noreferrer"><Github className="size-4"/> GitHub</a>
+            <a className="hover:text-white inline-flex items-center gap-1" href="https://github.com/santiago-cortes-ortiz" target="_blank" rel="noreferrer"><Github className="size-4"/> GitHub</a>
             <button 
               onClick={copyEmail}
               className="hover:text-white inline-flex items-center gap-1 relative"
@@ -175,14 +175,14 @@ function Proyectos() {
     {
       nombre: 'Plantilla Spring Boot Clean Architecture',
       descripcion: 'Base de proyecto opinionada con módulos, integración con PostgreSQL, validación y pruebas.',
-      enlaces: [{ href: '#', label: 'Código' }],
-      etiquetas: ['Spring Boot', 'PostgreSQL', 'Docker']
+      enlaces: [{ href: 'https://github.com/santiago-cortes-ortiz/scaffolding-java-spring-boot', label: 'Código' }],
+      etiquetas: ['Spring Boot', 'Java', 'Database']
     },
     {
       nombre: 'API de Catálogo',
       descripcion: 'Servicio REST para gestión de productos con cache y paginación eficiente.',
       enlaces: [{ href: '#', label: 'Código' }],
-      etiquetas: ['Java', 'Spring Data', 'Redis']
+      etiquetas: ['Java', 'Spring Data', 'Redis', 'Docker', 'NoSQL']
     },
   ]
   return (
