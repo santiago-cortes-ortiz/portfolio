@@ -182,7 +182,7 @@ function Proyectos() {
       nombre: 'API de Catálogo',
       descripcion: 'Servicio REST para gestión de productos con cache y paginación eficiente.',
       enlaces: [{ href: '#', label: 'Código' }],
-      etiquetas: ['Java', 'Spring Data', 'Redis', 'Docker', 'NoSQL']
+      etiquetas: ['Java','Spring Boot','Spring Data','Redis','Docker','NoSQL','JUnit']
     },
   ]
   return (
