@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, ArrowRight, Building2, Calendar, Code2 } from 'lucide-react'
+import profileImage from './assets/image.png'
 
 function Nav() {
   const links = [
@@ -89,9 +90,11 @@ function Hero() {
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="md:col-span-1">
           <div className="aspect-square rounded-2xl bg-gradient-to-br from-violet-700 to-fuchsia-600 p-[2px]">
-            <div className="h-full w-full rounded-2xl bg-neutral-900/80 grid place-items-center text-neutral-400">
-              Tu Foto
-            </div>
+             <img 
+              src={profileImage} 
+              alt="Foto de perfil" 
+              className="h-full w-full rounded-2xl object-cover bg-neutral-900"
+            />
           </div>
         </motion.div>
       </div>
